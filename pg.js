@@ -1,9 +1,9 @@
-import pg from 'pg'
+const pg = require('pg')
 
-export const pool = new pg.Pool({
+const pool = new pg.Pool({
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME
-
-
 })
+
+module.exports = pool
