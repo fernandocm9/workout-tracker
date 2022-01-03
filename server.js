@@ -56,8 +56,9 @@ app.patch('/workout/:id', async(req, res)=>{
             hour: req.body.hour || workout.length_hour,
             min: req.body.min || workout.length_min
         }
-        await pool.query('UPDATE workout SET the_day=$1, type_workout=$2, exercises=$3, length_hour=$4, length_min=$5', [obj.date, obj.type, obj.exercise, obj.hour, obj.min])
-        res.send(workout)
+        const changed = await pool.query('UPDATE workout SET the_day=$1, type_workout=$2, exercises=$3, length_hour=$4, length_min=$5', [obj.date, obj.type, obj.exercise, obj.hour, obj.min])
+        res.send(changed)
+        client.release()
     } catch (err) {
         fiveHundredError(err,res)
     }
@@ -68,6 +69,7 @@ app.delete('/workout/:id', async(req, res)=>{
         const client = await pool.client()
         const {rows} = await client.query(`SELECT * FROM workout WHERE id=${req.params.id}`)
         res.json({message: `workout ${req.params.id} was deleted`})
+        client.release()
     } catch (err) {
         fiveHundredError(err, res)
     }
