@@ -1,3 +1,5 @@
+const { response } = require("express")
+
 const dateT = document.querySelector('#date')
 const typeWorkoutT = document.querySelector('#typeWorkout')
 const exerciseT = document.querySelector('#exercise')
@@ -101,7 +103,7 @@ deleteBtn.addEventListener('click', ()=>{
     //https://warm-depths-22438.herokuapp.com/workouts/
     const url = `https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`
     fetch(url, {method: 'DELETE'})
-    .then(results => results.json())
+    .then(response => response.json())
     .catch((err)=>{
         console.log(err, url)
     })
