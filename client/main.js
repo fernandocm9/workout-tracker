@@ -1,9 +1,10 @@
-const date = document.querySelector('#date')
-const typeWorkout = document.querySelector('#typeWorkout')
-const exercise = document.querySelector('#exercise')
-const sets = document.querySelector('#sets')
-const reps = document.querySelector('#reps')
-const workoutCont = document.querySelector('#workoutCont')
+const dateT = document.querySelector('#date')
+const typeWorkoutT = document.querySelector('#typeWorkout')
+const exerciseT = document.querySelector('#exercise')
+const setsT = document.querySelector('#sets')
+// $('#sets')
+const repsT = document.querySelector('#reps')
+const workoutsCont = document.querySelector('#workoutCont')
 
 const submitBtn = document.querySelector('#submitBtn')
 const body = document.querySelector('body')
@@ -16,9 +17,36 @@ function displayWorkouts(){
     deleteChildNodes(workoutCont)
     fetch('https://warm-depths-22438.herokuapp.com/workouts')
     .then(response => response.json())
-    .then(data => console.log(data));
-    const div = document.createElement('div')
+    .then(data => {
+        console.log(data)
+        createSlides(data)
+    });
 
+}
+
+function createSlides(data){
+    data.forEach(elem => {
+        const workoutCont = $('<div></div>').addClass('workoutsCont')
+        $(workoutsCont).appendTo(workoutCont)
+
+        const id = $('<div></div>').addClass('id').text(`${elem.id}`)
+        $(id).appendTo(workoutCont)
+
+        const theDay = $('<div></div>').addClass('theDay').text(`${elem.the_day}`)
+        $(theDay).appendTo(workoutCont)
+
+        const typeWorkout = $('<div></div>').addClass('workoutTypeDiv').text(`${elem.type_workout}`)
+        $(typeWorkout).appendTo(workoutCont)
+
+        const exercise = $('<div></div>').addClass('exerciseDiv').text(`${elem.exercise}`)
+        $(exercise).appendTo(workoutCont)
+
+        const reps = $('<div></div>').addClass('repsDiv').text(`${elem.reps}`)
+        $(reps).appendTo(workoutCont)
+
+        const sets = $('<div></div>').addClass('setsDiv').text(`${elem.sets}`)
+        $(sets).appendTo(workoutCont)
+    });
 }
 
 function deleteChildNodes(parent){
