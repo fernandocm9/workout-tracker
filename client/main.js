@@ -5,4 +5,4 @@ const deleteBtn = document.querySelector('#delete')
 // const submitCont = document.createElement('div')
 // (submitCont).attr
 
-$('div').appendTo('body')
+$('<div>words</div>').appendTo('body')
