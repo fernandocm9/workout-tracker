@@ -14,12 +14,14 @@ body{
 
 #workoutCont{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    row-gap: 30px;
+    justify-content: center;
+    row-gap: 20px;
 }
 
 .workoutCont{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    column-gap: 25px;
 }
