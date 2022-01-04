@@ -71,7 +71,7 @@ app.delete('/workouts/:id', async(req, res)=>{
         if(!rows[0]){
             return res.status(404).json({message: 'entry already does not exist'})
         }
-        await client.query(`DELETE FROM workout WHERE id=$1`, [parseInt(req.params.id)])
+        await client.query(`DELETE FROM workout WHERE id=$1`, [req.params.id])
         res.json({message: `workout ${req.params.id} was deleted`})
         client.release()
     } catch (err) {
@@ -85,10 +85,10 @@ app.use((req,res)=>{
 })
 
 function fiveHundredError(err, res){
-    console.log(err)
-    res.end()
+    // console.log(err)
+    // res.end()
     // res.json(err)
-    // res.status(500)
+    res.status(500).json(err)
 }
 
 app.listen(PORT, ()=>{
