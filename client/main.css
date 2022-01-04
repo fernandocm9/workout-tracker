@@ -2,3 +2,7 @@
 body{
     font-family: 'Teko', sans-serif;
 }
+
+#title{
+    justify-content: center;
+}
