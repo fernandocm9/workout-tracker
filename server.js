@@ -85,7 +85,8 @@ app.use((req,res)=>{
 })
 
 function fiveHundredError(err, res){
-    res.json(err)
+    console.log(err)
+    // res.json(err)
     // res.status(500)
 }
 
