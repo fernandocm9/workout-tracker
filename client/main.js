@@ -24,6 +24,20 @@ function displayWorkouts(){
 
 }
 
+submitBtn.addEventListener('click', ()=>{
+    //making the post request here
+    const postObj = {
+        "the_day": dateT.value,
+        "type_workout": typeWorkoutT.value,
+        "exercise": exerciseT.value,
+        "sets": setsT.value,
+        "reps": repsT.value
+    }
+
+
+    $.post('https://warm-depths-22438.herokuapp.com/workouts', postObj)
+})
+
 function createSlides(data){
     data.forEach(elem => {
         const workoutCont = $('<div></div>').addClass('workoutCont')
@@ -55,6 +69,3 @@ function deleteChildNodes(parent){
     }
 }
 
-submitBtn.addEventListener('click', ()=>{
-    //making the post request here
-})
