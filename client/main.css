@@ -12,6 +12,12 @@ body{
     float: right;
 }
 
+#workoutCont{
+    display: flex;
+    justify-content: center;
+    row-gap: 30px;
+}
+
 .workoutCont{
     display: flex;
     flex-direction: row;
