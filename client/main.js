@@ -16,6 +16,7 @@ function displayWorkouts(){
     //create divs that display inside of the workoutCont
     //will have to make a get req to db
     // deleteChildNodes(workoutsCont)
+    // fetch('https://warm-depths-22438.herokuapp.com/workouts')
     fetch('https://warm-depths-22438.herokuapp.com/workouts')
     .then(response => response.json())
     .then(data => {
@@ -37,7 +38,8 @@ submitBtn.addEventListener('click', ()=>{
         "sets": setsT.value,
         "reps": repsT.value
     }
-
+    
+    
     fetch('https://warm-depths-22438.herokuapp.com/workouts', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(postObj)})
     .then(results => results.json())
     .then(console.log)
@@ -84,7 +86,7 @@ deleteBtn.addEventListener('click', ()=>{
         alert('Please enter a valid number')
         return;
     }
-
+    https://warm-depths-22438.herokuapp.com/workouts/
     fetch(`https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`, {method: 'DELETE', headers: {'Content-Type': 'application/json'}})
     .then(results => results.json())
     .then(console.log)
