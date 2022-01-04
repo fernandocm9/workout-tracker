@@ -68,6 +68,10 @@ app.delete('/workouts/:id', async(req, res)=>{
     try {
         const client = await pool.client()
         const {rows} = await client.query(`SELECT * FROM workout WHERE id=${req.params.id}`)
+        if(!rows[0]){
+            return res.status(404).json({message: 'entry already does not exist'})
+        }
+        await client.query(`DELETE FROM workout WHERE id = ${req.params.id}`)
         res.json({message: `workout ${req.params.id} was deleted`})
         client.release()
     } catch (err) {
