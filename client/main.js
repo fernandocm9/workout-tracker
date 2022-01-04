@@ -5,7 +5,8 @@ const setsT = document.querySelector('#sets')
 // $('#sets')
 const repsT = document.querySelector('#reps')
 const workoutsCont = document.querySelector('#workoutCont')
-
+const deleteT = document.querySelector('#deleteT')
+const deleteBtn = document.querySelector('#deleteBtn')
 const submitBtn = document.querySelector('#submitBtn')
 const body = document.querySelector('body')
 
@@ -14,7 +15,7 @@ window.onload = displayWorkouts()
 function displayWorkouts(){
     //create divs that display inside of the workoutCont
     //will have to make a get req to db
-    deleteChildNodes(workoutCont)
+    // deleteChildNodes(workoutsCont)
     fetch('https://warm-depths-22438.herokuapp.com/workouts')
     .then(response => response.json())
     .then(data => {
@@ -40,6 +41,9 @@ submitBtn.addEventListener('click', ()=>{
     fetch('https://warm-depths-22438.herokuapp.com/workouts', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(postObj)})
     .then(results => results.json())
     .then(console.log)
+    .catch((err)=>{
+        console.log(err)
+    })
 
     window.location.reload(true);
 })
@@ -75,3 +79,17 @@ function deleteChildNodes(parent){
     }
 }
 
+deleteBtn.addEventListener('click', ()=>{
+    if(isNaN(deleteT.value)){
+        alert('Please enter a valid number')
+        return
+    }
+    fetch(`https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`, {method: 'DELETE'})
+    .then(results => results.json())
+    .then(console.log)
+    .catch((err)=>{
+        console.log(err)
+    })
+
+    window.location.reload(true);
+})
