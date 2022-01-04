@@ -11,3 +11,8 @@ body{
 .delete{
     float: right;
 }
+
+.workoutSlide{
+    display: flex;
+    flex-direction: column;
+}

@@ -32,19 +32,19 @@ function createSlides(data){
         const id = $('<div></div>').addClass('id').text(`ID: ${elem.id}`)
         $(id).appendTo(workoutCont)
 
-        const theDay = $('<div></div>').addClass('theDay').text(`Date: ${elem.the_day}`)
+        const theDay = $('<div></div>').addClass('theDay workoutSlide').text(`Date: ${elem.the_day}`)
         $(theDay).appendTo(workoutCont)
 
-        const typeWorkout = $('<div></div>').addClass('workoutTypeDiv').text(`Type of Workout: ${elem.type_workout}`)
+        const typeWorkout = $('<div></div>').addClass('workoutTypeDiv workoutSlide').text(`Type of Workout: ${elem.type_workout}`)
         $(typeWorkout).appendTo(workoutCont)
 
-        const exercise = $('<div></div>').addClass('exerciseDiv').text(`Exercise: ${elem.exercise}`)
+        const exercise = $('<div></div>').addClass('exerciseDiv workoutSlide').text(`Exercise: ${elem.exercise}`)
         $(exercise).appendTo(workoutCont)
 
-        const reps = $('<div></div>').addClass('repsDiv').text(`Reps: ${elem.reps}`)
+        const reps = $('<div></div>').addClass('repsDiv workoutSlide').text(`Reps: ${elem.reps}`)
         $(reps).appendTo(workoutCont)
 
-        const sets = $('<div></div>').addClass('setsDiv').text(`Sets: ${elem.sets}`)
+        const sets = $('<div></div>').addClass('setsDiv workoutSlide').text(`Sets: ${elem.sets}`)
         $(sets).appendTo(workoutCont)
     });
 }
