@@ -72,6 +72,8 @@ function createSlides(data){
 
         const sets = $('<div></div>').addClass('setsDiv workoutSlide').text(`Sets: ${elem.sets}`)
         $(sets).appendTo(workoutCont)
+
+        const editBtn = $('<button>Edit</button>').addClass('editBtn')
     });
 }
 
