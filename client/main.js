@@ -74,6 +74,7 @@ function createSlides(data){
         $(sets).appendTo(workoutCont)
 
         const editBtn = $('<button>Edit</button>').addClass('editBtn')
+        $(editBtn).appendTo(workoutCont)
     });
 }
 
