@@ -1,12 +1,6 @@
-const weightBtn = document.querySelector('#weight')
-const cardioBtn = document.querySelector('#cardio')
-const deleteBtn = document.querySelector('#delete')
-const weightT = document.querySelector('#weightT')
-const cardioT = document.querySelector('#cardioT')
-const deleteT = document.querySelector('#deleteT')
-const allInput = document.querySelector('.input')
+
 const body = document.querySelector('body')
 
-const submitCont = document.createElement('div')
-body.append(submitCont)
-submitCont.append(allInput)
+
+
+
