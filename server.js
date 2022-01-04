@@ -71,7 +71,7 @@ app.delete('/workouts/:id', async(req, res)=>{
         if(!rows[0]){
             return res.status(404).json({message: 'entry already does not exist'})
         }
-        await client.query(`DELETE FROM workout WHERE id=$1`, [req.params.id])
+        await client.query(`DELETE FROM workout WHERE id=$1`, [parseInt(req.params.id)])
         res.json({message: `workout ${req.params.id} was deleted`})
         client.release()
     } catch (err) {
