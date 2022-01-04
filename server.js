@@ -75,7 +75,8 @@ app.delete('/workouts/:id', async(req, res)=>{
         res.json({message: `workout ${req.params.id} was deleted`})
         client.release()
     } catch (err) {
-        fiveHundredError(err, res)
+        // fiveHundredError(err, res)
+        console.log(err.message)
     }
 })
 
