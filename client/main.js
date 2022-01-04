@@ -20,7 +20,10 @@ function displayWorkouts(){
     .then(data => {
         console.log(data)
         createSlides(data)
-    });
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 
 }
 
