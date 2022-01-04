@@ -35,7 +35,7 @@ submitBtn.addEventListener('click', ()=>{
     }
 
 
-    fetch('https://warm-depths-22438.herokuapp.com/workouts', {method: 'POST', body: dateT.value})
+    fetch('https://warm-depths-22438.herokuapp.com/workouts', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(postObj)})
     .then(results => results.json())
     .then(console.log)
 })
