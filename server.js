@@ -66,6 +66,7 @@ app.patch('/workouts/:id', async(req, res)=>{
 
 app.delete('/workouts/:id', async(req, res)=>{
     try {
+        res.send('working')
         const client = await pool.client()
         const {rows} = await client.query(`SELECT * FROM workout WHERE id=$1`, [req.params.id])
         if(!rows[0]){
