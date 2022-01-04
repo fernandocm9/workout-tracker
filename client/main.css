@@ -15,6 +15,7 @@ body{
 #workoutCont{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     row-gap: 30px;
 }
 
