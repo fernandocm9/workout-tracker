@@ -85,8 +85,8 @@ app.use((req,res)=>{
 })
 
 function fiveHundredError(err, res){
-    res.status(500)
     res.json(err)
+    // res.status(500)
 }
 
 app.listen(PORT, ()=>{
