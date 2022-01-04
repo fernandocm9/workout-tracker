@@ -20,7 +20,7 @@ app.get('/workouts', async (req,res)=>{
 app.get('/workouts/:id', async(req,res)=>{
     try {
         const client = await pool.connect()
-        const result = await client.query(`SELECT * FROM workoute WHERE id=${req.params.id}`)
+        const result = await client.query(`SELECT * FROM workout WHERE id=${req.params.id}`)
         res.send(result.rows[0])
         client.release()
     } catch (err) {
@@ -43,7 +43,7 @@ app.post('/workouts', async(req,res)=>{
     }
 })
 
-app.patch('/workout/:id', async(req, res)=>{
+app.patch('/workouts/:id', async(req, res)=>{
     try {
         const id = parseInt(req.params.id)
         const client = await pool.client()
@@ -64,7 +64,7 @@ app.patch('/workout/:id', async(req, res)=>{
     }
 })
 
-app.delete('/workout/:id', async(req, res)=>{
+app.delete('/workouts/:id', async(req, res)=>{
     try {
         const client = await pool.client()
         const {rows} = await client.query(`SELECT * FROM workout WHERE id=${req.params.id}`)
