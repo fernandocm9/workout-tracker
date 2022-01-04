@@ -35,9 +35,9 @@ submitBtn.addEventListener('click', ()=>{
     }
 
 
-    $.post('https://warm-depths-22438.herokuapp.com/workouts', postObj, ()=>{
-        console.log('it works')
-    })
+    fetch('https://warm-depths-22438.herokuapp.com/workouts', {method: 'POST', body: postObj})
+    .then(results => results.json())
+    .then(console.log)
 })
 
 function createSlides(data){
