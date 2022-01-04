@@ -98,7 +98,7 @@ deleteBtn.addEventListener('click', ()=>{
         alert('Please enter a valid number')
         return;
     }
-    https://warm-depths-22438.herokuapp.com/workouts/
+    //https://warm-depths-22438.herokuapp.com/workouts/
     fetch(`https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`, {method: 'DELETE'})
     .then(results => results.json())
     .catch((err)=>{
