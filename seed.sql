@@ -1,1 +1,1 @@
-INSERT INTO workout (the_day, type_workout, exercises, length_hour, length_min) VALUES ('2020-01-03', 'chest', 'bench', 1, 10);
+INSERT INTO workout (the_day, type_workout, exercise, sets, reps) VALUES ('2020-01-03', 'chest', 'bench', 1, 10);
