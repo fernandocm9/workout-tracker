@@ -99,12 +99,12 @@ deleteBtn.addEventListener('click', ()=>{
         return;
     }
     https://warm-depths-22438.herokuapp.com/workouts/
-    fetch(`https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`, {method: 'DELETE', headers: {'Content-Type': 'application/json'}})
+    fetch(`https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`, {method: 'DELETE'})
     .then(results => results.json())
-    .then(console.log)
     .catch((err)=>{
         console.log(err)
     })
+    // .then(console.log)
 
     // window.location.reload(true);
 })
