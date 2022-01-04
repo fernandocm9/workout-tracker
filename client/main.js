@@ -27,7 +27,7 @@ function displayWorkouts(){
 function createSlides(data){
     data.forEach(elem => {
         const workoutCont = $('<div></div>').addClass('workoutsCont')
-        $(workoutsCont).appendTo(workoutCont)
+        $(workoutCont).appendTo(workoutsCont)
 
         const id = $('<div></div>').addClass('id').text(`${elem.id}`)
         $(id).appendTo(workoutCont)
