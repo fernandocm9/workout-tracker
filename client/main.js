@@ -99,10 +99,11 @@ deleteBtn.addEventListener('click', ()=>{
         return;
     }
     //https://warm-depths-22438.herokuapp.com/workouts/
-    fetch(`https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`, {method: 'DELETE'})
+    const url = `https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`
+    fetch(url, {method: 'DELETE'})
     .then(results => results.json())
     .catch((err)=>{
-        console.log(err)
+        console.log(err, url)
     })
     // .then(console.log)
 
