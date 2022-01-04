@@ -32,7 +32,7 @@ app.post('/workouts', async(req,res)=>{
     try {
         const obj = {
             text: 'INSERT INTO workout (the_day, type_workout, exercises, length_hour, length_min) VALUES ($1, $2, $3, $4, $5)',
-            values: [req.body.date, req.body.type, req.body.exercise, req.body.hour, req.body.min]
+            values: [req.body.the_day, req.body.type_workout, req.body.exercises, req.body.length_hour, req.body.length_min]
         }
         const client = await pool.connect()
         const result = await client.query(obj)
@@ -50,11 +50,11 @@ app.patch('/workouts/:id', async(req, res)=>{
         const {rows} = await client.query(`SELECT * FROM workout WHERE id=${id}`)
         const workout = rows[0]
         const obj = {
-            date: req.body.date || workout.the_day,
-            type: req.body.type || workout.type_workout,
-            exercise: req.body.exercise || workout.exercises,
-            hour: req.body.hour || workout.length_hour,
-            min: req.body.min || workout.length_min
+            date: req.body.the_day || workout.the_day,
+            type: req.body.type_workout || workout.type_workout,
+            exercise: req.body.exercises || workout.exercises,
+            hour: req.body.length_hour || workout.length_hour,
+            min: req.body.length_min || workout.length_min
         }
         const changed = await pool.query('UPDATE workout SET the_day=$1, type_workout=$2, exercises=$3, length_hour=$4, length_min=$5', [obj.date, obj.type, obj.exercise, obj.hour, obj.min])
         res.json({message: 'workout was updated'})
