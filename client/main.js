@@ -106,5 +106,5 @@ deleteBtn.addEventListener('click', ()=>{
         console.log(err)
     })
 
-    window.location.reload(true);
+    // window.location.reload(true);
 })
