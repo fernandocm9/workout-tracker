@@ -12,7 +12,7 @@ body{
     float: right;
 }
 
-.workoutSlide{
+.workoutCont{
     display: flex;
     flex-direction: column;
 }
