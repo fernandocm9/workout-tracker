@@ -73,19 +73,19 @@ function createSlides(data){
         const sets = $('<div></div>').addClass('setsDiv workoutSlide').text(`Sets: ${elem.sets}`)
         $(sets).appendTo(workoutCont)
 
-        const editBtn = $('<button>Edit</button>').addClass('editBtn')
-        $(editBtn).appendTo(workoutCont)
+        // const editBtn = $('<button>Edit</button>').addClass('editBtn')
+        // $(editBtn).appendTo(workoutCont)
 
-        editBtn.addEventListener('click', ()=>{
-            editingFunction()
-        })
+        // editBtn.addEventListener('click', ()=>{
+        //     editingFunction()
+        // })
     });
 }
 
-function editingFunction(){
-    const form = $('<form></form>').addClass('forms')
-    $(form).appendTo(editBtn)
-}
+// function editingFunction(){
+//     const form = $('<form></form>').addClass('forms')
+//     $(form).appendTo(editBtn)
+// }
 
 function deleteChildNodes(parent){
     while(parent.firstChild){
