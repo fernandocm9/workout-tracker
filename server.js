@@ -67,7 +67,7 @@ app.patch('/workouts/:id', async(req, res)=>{
 app.delete('/workouts/:id', async(req, res)=>{
     try {
         // res.send('working')
-        const client = await pool.client()
+        const client = await pool.connect()
         // const {rows} = await client.query(`SELECT * FROM workout WHERE id=$1`, [req.params.id])
         // if(!rows[0]){
         //     return res.status(404).json({message: 'entry already does not exist'})
