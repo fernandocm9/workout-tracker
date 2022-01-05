@@ -56,7 +56,7 @@ app.patch('/workouts/:id', async(req, res)=>{
             hour: req.body.sets || workout.sets,
             min: req.body.reps || workout.reps
         }
-        const changed = await pool.query('UPDATE workout SET the_day=$1, type_workout=$2, exercise=$3, sets=$4, reps=$5', [obj.date, obj.type, obj.exercise, obj.hour, obj.min])
+        const changed = await pool.query('UPDATE workout SET the_day=$1, type_workout=$2, exercise=$3, sets=$4, reps=$5 WHERE id=$6', [obj.date, obj.type, obj.exercise, obj.hour, obj.min, id])
         res.json({message: 'workout was updated'})
         client.release()
     } catch (err) {
