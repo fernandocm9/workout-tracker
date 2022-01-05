@@ -29,8 +29,14 @@ body{
 #bigDiv{
     display: flex;
     flex-direction: row;
+    margin-top: 40px;
 }
 
 #leftDiv{
     width: 30%;
+    margin-left: 100px;
+}
+#rightDiv{
+    width: 70%;
+    margin-right: 100px;
 }
