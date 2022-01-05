@@ -8,7 +8,10 @@
 
 body{
     font-family: 'Teko', sans-serif;
-    background-color: midnightblue;
+    /* background-color: midnightblue; */
+    background-image: url('https://image.freepik.com/free-photo/gym-equipments-fitness-club_23-2147949744.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .delete{
