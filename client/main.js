@@ -7,6 +7,14 @@ const workoutsCont = document.querySelector('#workoutCont')
 const deleteT = document.querySelector('#deleteT')
 const deleteBtn = document.querySelector('#deleteBtn')
 const submitBtn = document.querySelector('#submitBtn')
+
+const editId = document.querySelector('#editId')
+const editDate = document.querySelector('#editDate')
+const editTypeWorkout = document.querySelector('#editTypeWorkout')
+const editExercise = document.querySelector('#editExercise')
+const editSets = document.querySelector('#editSets')
+const editReps = document.querySelector('#editReps')
+const editSubmit = document.querySelector('#editSubmit')
 const body = document.querySelector('body')
 
 window.onload = displayWorkouts()
@@ -74,12 +82,26 @@ function createSlides(data){
     });
 }
 
+editSubmit.addEventListener('click', ()=>{
+    const editObj = {}
 
-function deleteChildNodes(parent){
-    while(parent.firstChild){
-        parent.removeChild(parent.firstChild)
+    if(editId.value || isNaN(editId.value)){
+        alert('Enter a number for ID')
+        return;
     }
-}
+
+    if(editDate.value){editObj["the_day"] = editDate.value}
+    if(editTypeWorkout.value){editObj["type_workout"] = editTypeWorkout.value}
+    if(editReps.value){editObj["reps"] = editReps.value}
+    if(editSets.value){editObj["sets"] = editSets.value}
+    if(editExercise.value){editObj["exercise"] = editExercise.value}
+
+    fetch(`https://warm-depths-22438.herokuapp.com/workouts/${editId.value}`, {method: 'PATCH', body: JSON.stringify(editObj)})
+    .catch((err)=>{
+        console.log(err)
+    })
+})
+
 
 deleteBtn.addEventListener('click', ()=>{
     if(isNaN(deleteT.value)){
@@ -92,6 +114,13 @@ deleteBtn.addEventListener('click', ()=>{
         console.log(err, url)
     })
     // .then(console.log)
-
+    
     window.location.reload(true);
 })
+
+
+function deleteChildNodes(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
+}
