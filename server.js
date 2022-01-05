@@ -46,7 +46,7 @@ app.post('/workouts', async(req,res)=>{
 app.patch('/workouts/:id', async(req, res)=>{
     try {
         const id = parseInt(req.params.id)
-        const client = await pool.client()
+        const client = await pool.connect()
         const {rows} = await client.query(`SELECT * FROM workout WHERE id=${id}`)
         const workout = rows[0]
         const obj = {
