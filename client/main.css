@@ -99,3 +99,7 @@ body{
 #editSets{
     margin-left: 5px;
 }
+
+h1{
+    text-shadow: 0 0 2px black;
+}
