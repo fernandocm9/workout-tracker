@@ -85,7 +85,7 @@ function createSlides(data){
 editSubmit.addEventListener('click', ()=>{
     const editObj = {}
 
-    if(editId.value || isNaN(editId.value)){
+    if(!editId.value && !isNaN(editId.value)){
         alert('Enter a number for ID')
         return;
     }
