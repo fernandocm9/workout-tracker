@@ -25,3 +25,12 @@ body{
     justify-content: center;
     column-gap: 25px;
 }
+
+#bigDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+#leftDiv{
+    width: 30%;
+}
