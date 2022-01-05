@@ -2,7 +2,6 @@ const dateT = document.querySelector('#date')
 const typeWorkoutT = document.querySelector('#typeWorkout')
 const exerciseT = document.querySelector('#exercise')
 const setsT = document.querySelector('#sets')
-// $('#sets')
 const repsT = document.querySelector('#reps')
 const workoutsCont = document.querySelector('#workoutCont')
 const deleteT = document.querySelector('#deleteT')
@@ -16,7 +15,6 @@ function displayWorkouts(){
     //create divs that display inside of the workoutCont
     //will have to make a get req to db
     // deleteChildNodes(workoutsCont)
-    // fetch('https://warm-depths-22438.herokuapp.com/workouts')
     fetch('https://warm-depths-22438.herokuapp.com/workouts')
     .then(response => response.json())
     .then(data => {
@@ -73,19 +71,9 @@ function createSlides(data){
         const sets = $('<div></div>').addClass('setsDiv workoutSlide').text(`Sets: ${elem.sets}`)
         $(sets).appendTo(workoutCont)
 
-        // const editBtn = $('<button>Edit</button>').addClass('editBtn')
-        // $(editBtn).appendTo(workoutCont)
-
-        // editBtn.addEventListener('click', ()=>{
-        //     editingFunction()
-        // })
     });
 }
 
-// function editingFunction(){
-//     const form = $('<form></form>').addClass('forms')
-//     $(form).appendTo(editBtn)
-// }
 
 function deleteChildNodes(parent){
     while(parent.firstChild){
@@ -98,7 +86,6 @@ deleteBtn.addEventListener('click', ()=>{
         alert('Please enter a valid number')
         return;
     }
-    //https://warm-depths-22438.herokuapp.com/workouts/
     const url = `https://warm-depths-22438.herokuapp.com/workouts/${deleteT.value}`
     fetch(url, {method: 'DELETE'})
     .catch((err)=>{
@@ -106,5 +93,5 @@ deleteBtn.addEventListener('click', ()=>{
     })
     // .then(console.log)
 
-    // window.location.reload(true);
+    window.location.reload(true);
 })
