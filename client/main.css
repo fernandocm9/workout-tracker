@@ -35,6 +35,7 @@ body{
     margin-left: 70px;
     margin-top: 10px;
     border-radius: 5px;
+    border: 2px solid black;
 }
 
 #bigDiv{
