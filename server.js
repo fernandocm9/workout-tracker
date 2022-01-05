@@ -74,8 +74,8 @@ app.delete('/workouts/:id', async(req, res)=>{
         // }
         await client.query(`DELETE FROM workout WHERE id=$1`, [parseInt(req.params.id)])
         // res.json({message: `workout ${req.params.id} was deleted`})
-        res.end()
         client.release()
+        res.end()
     } catch (err) {
         fiveHundredError(err, res)
        
