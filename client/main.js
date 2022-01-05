@@ -96,7 +96,9 @@ editSubmit.addEventListener('click', ()=>{
     if(editSets.value){editObj["sets"] = editSets.value}
     if(editExercise.value){editObj["exercise"] = editExercise.value}
 
-    fetch(`https://warm-depths-22438.herokuapp.com/workouts/${editId.value}`, {method: 'PATCH', body: JSON.stringify(editObj)})
+    console.log(editObj)
+
+    fetch(`https://warm-depths-22438.herokuapp.com/workouts/${editId.value}`, {method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(editObj)})
     .catch((err)=>{
         console.log(err)
     })
